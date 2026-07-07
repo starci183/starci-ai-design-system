@@ -26,7 +26,7 @@ khung → block-apply dựng chi tiết block). Dùng khi thay đổi nằm tron
 - **KHÔNG hand-roll** `<div border>`/`<button hover:bg>`/tự ghép icon+input — dùng **HeroUI + block canonical**. Element MỚI không có canon → HỎI thầy.
 - **Token + spacing scale `0/2/3/4/6`** (CẤM 1.5); `rounded-xl`/`rounded-full` concentric; **variant theo NỀN** (background→primary, surface→secondary); **hover theo bản chất**; icon = **phosphor**; a11y (focus-ring, aria icon-only).
 - Data → **`AsyncContent`** (skeleton mirror · empty · error). Style sống trong block, feature chỉ ghép.
-- **(tuỳ) Opus-spec → Sonnet:** block LỚN / đụng BE → Opus viết spec kĩ rồi Sonnet code + Opus verify. Block nhỏ → dựng thẳng (main loop), khỏi fan-out.
+- **(tuỳ) Opus-spec → Workflow:** block LỚN / đụng BE → Opus viết spec kĩ rồi **author 1 `Workflow` (sonnet)** code + Opus verify. Block nhỏ → dựng thẳng (main loop), khỏi Workflow.
 
 ## Verify
 - `npx tsc --noEmit` + `npm run lint` sạch. **Preview block** (isolated hoặc trong ngữ cảnh) → soi variant/state, chụp. Đụng BE → verify runtime thật.

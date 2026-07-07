@@ -21,7 +21,7 @@ Nửa APPLY. Đọc 1 consolidation proposal đã chốt → gom về block cano
 - Đọc **`fe/proposals/consolidate-<scope>.proposal.md`** (spec: cụm trùng · block đích · call-sites · files-to-touch). Bám spec.
 
 ## Build — OPUS viết spec trích → SONNET code
-**Cơ chế:** OPUS đọc proposal + source thật → **IMPL-SPEC SIÊU KĨ** (block mới/tái dùng · thay CHÍNH XÁC từng call-site · thứ tự) → **fan-out SONNET** code đúng spec → **OPUS VERIFY**.
+**Cơ chế:** OPUS đọc proposal + source thật → **IMPL-SPEC SIÊU KĨ** (block mới/tái dùng · thay CHÍNH XÁC từng call-site · thứ tự) → **author 1 `Workflow`** (deterministic, phase **sonnet**: pipeline mỗi cụm/call-site — KHÔNG agent lẻ) code đúng spec → **OPUS VERIFY**.
 - **Block đích:** tái dùng → thay duplicate bằng block sẵn có; mới → trích **1 folder `index.tsx`**, props `WithClassNames`, element-aware, **KHÔNG hand-roll** (theo `fe/components/` + `starci-fe-block-brainstorm`).
 - **Thay MỌI call-site** trong proposal (đừng bỏ sót → còn duplicate = gom nửa vời). Xoá code trùng cũ.
 - Được sửa BE/.mount nếu block gom cần (hiếm).

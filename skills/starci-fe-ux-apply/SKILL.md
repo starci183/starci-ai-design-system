@@ -26,7 +26,7 @@ verify → đánh **✅ DONE** + flip features. Có thể chạy ở **session k
 - Đọc nền liên quan: `fe/{layouts,components,principles}` + prototype bấm-được `fe/prototypes/<feature>.html` (đi luồng để hiểu ý đồ).
 
 ## Build — OPUS viết spec siêu kĩ → SONNET code
-**Cơ chế (bake):** OPUS (main) đọc proposal + source thật → viết **IMPL-SPEC SIÊU KĨ** (file cần sửa · thay đổi CHÍNH XÁC từng chỗ · shape code · edge case · thứ tự áp) → **fan-out agent SONNET** code ĐÚNG spec (Sonnet gõ, KHÔNG tự sáng tác layout) → **OPUS VERIFY** (đọc diff + tsc/lint/runtime). **Opus nghĩ, Sonnet gõ.**
+**Cơ chế (bake):** OPUS (main) đọc proposal + source thật → viết **IMPL-SPEC SIÊU KĨ** (file cần sửa · thay đổi CHÍNH XÁC từng chỗ · shape code · edge case · thứ tự áp) → **author 1 `Workflow`** (deterministic, phase **sonnet**: fan-out/pipeline theo spec — KHÔNG spawn agent lẻ) code ĐÚNG spec → **OPUS VERIFY** (đọc diff + tsc/lint/runtime). **Opus nghĩ (spec), Workflow-sonnet gõ.**
 - Dựng theo proposal: **shell per surface + zones + section placement + routing** (route rời vs query-param mode đúng spec; hợp nhất URL scheme sibling).
 - Lắp bằng **block THẬT** (block briefs), feature chỉ **GHÉP** — **KHÔNG hand-roll / tự chế primitive**. Block chưa có → tạo theo `fe/components/` (internals → `starci-fe-block-skill`).
 - Mọi fetch → **`AsyncContent`**. 1 component = 1 folder `index.tsx`, props discipline.
