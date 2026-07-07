@@ -16,8 +16,11 @@ description: >
 Nửa SCAN của cặp gom-component. Quét scope → gom cụm trùng → chốt block đích → **ghi proposal** vào hàng đợi. **KHÔNG
 đụng code** (apply mới build).
 
+## Model policy (rẻ ở chỗ nhiều, khôn ở chỗ quyết)
+**Scan/fan-out = HAIKU** (rẻ, quét rộng bắt cụm lặp) · **rank + chốt cụm trùng + viết plan/proposal = OPUS** · (apply: Opus spec → Sonnet code). Haiku quét, Opus chốt.
+
 ## Scope (arg)
-`all` (toàn app) · `page <route>` · `feature <name>` · tập file. Rộng → **fan-out** Sonnet scanner per subtree.
+`all` (toàn app) · `page <route>` · `feature <name>` · tập file. Rộng → **fan-out** HAIKU scanner per subtree.
 
 ## Quy trình
 1. **SCAN tìm trùng** — quét scope, bắt: JSX cluster copy-paste · `className` blob lặp · component **cùng cấu trúc khác data** · 2+ chỗ tự-dựng cùng 1 primitive. **Ground source thật**; scope rộng → fan-out, gom kết quả.
