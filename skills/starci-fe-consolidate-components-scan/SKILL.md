@@ -22,8 +22,9 @@ Nửa SCAN của cặp gom-component. Quét scope → gom cụm trùng → chố
 ## Quy trình
 1. **SCAN tìm trùng** — quét scope, bắt: JSX cluster copy-paste · `className` blob lặp · component **cùng cấu trúc khác data** · 2+ chỗ tự-dựng cùng 1 primitive. **Ground source thật**; scope rộng → fan-out, gom kết quả.
 2. **ĐỐI CHIẾU** — cụm này **đã có block canonical trong `fe/components/`** chưa (→ đề xuất DÙNG LẠI) hay cần **block mới** (element-aware, props `WithClassNames`, 1 folder). Check **MEMORY** (đợt trước gom gì → khỏi đề xuất lại).
-3. **Chốt cụm gom** (thầy duyệt: cụm nào thật-sự-trùng, cụm nào khác-nghĩa-giữ-riêng) — chỉ gom **≥2-3 call-site** (rule-of-three), ngữ nghĩa > hình dạng.
-4. **GHI PROPOSAL** — `fe/proposals/consolidate-<scope>.proposal.md` (spec: **cụm trùng** [đường dẫn call-sites] · **block đích** [tái dùng tên / trích mới] · **files to touch** · verify plan) + 1 dòng **PENDING** vào `fe/proposals/BACKLOG.md`. **STOP.**
+3. **GHI PLAN NGẦM (đầy đủ, nền)** — `fe/proposals/consolidate-<scope>.plan.md` = **MỌI cụm potential**, rank theo IMPACT (số call-site · độ trùng · nợ), mỗi cụm 1 dòng + status (⬜ chưa · 🔨 đang · ✅ done). Đây là **plan NGẦM** — ghi HẾT ra đây nhưng **KHÔNG đổ hết ra duyệt**. Re-chạy → cập nhật plan (thêm cụm mới, GIỮ status cũ, bỏ cụm đã ✅).
+4. **LIST 3 CỤM / LẦN** (dễ duyệt) — mỗi lần chạy chỉ lấy **3 cụm ⬜ rank cao nhất** từ plan → ghi `consolidate-<scope>-<batch>.proposal.md` (3 cụm: call-sites · block đích [tái dùng tên / trích mới] · files-to-touch · verify) + 1 dòng **PENDING** vào `fe/proposals/BACKLOG.md`. **Chỉ 3.** Chỉ ≥2-3 call-site (rule-of-three), ngữ nghĩa > hình (bỏ cụm khác-nghĩa). **STOP.**
+   - Plan ngầm = "list những cái sắp làm" đầy đủ (thầy mở xem/đổi rank khi muốn); mỗi batch chỉ hiện 3. **Cạn cụm ⬜ → báo "hết trùng trong scope".**
 5. **→ GỢI Ý APPLY NGAY:** hỏi thầy "gom luôn session này không?" → đồng ý → `starci-fe-consolidate-components-apply <scope>`; không → để sau (BACKLOG bàn giao).
 
 ## Ràng

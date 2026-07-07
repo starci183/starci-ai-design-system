@@ -30,7 +30,7 @@ Nửa APPLY. Đọc 1 consolidation proposal đã chốt → gom về block cano
 - `npx tsc --noEmit` + `npm run lint` sạch. **Preview** các trang có call-site đã thay → không vỡ. Chụp.
 
 ## Xong → BACKLOG + MEMORY + push
-1. `fe/proposals/BACKLOG.md`: proposal → **✅ DONE** + ngày.
+1. `fe/proposals/BACKLOG.md`: proposal → **✅ DONE** + ngày. Đánh **✅ 3 cụm vừa gom** trong `fe/proposals/consolidate-<scope>.plan.md` (plan ngầm) → re-scan tự lấy 3 cụm ⬜ tiếp.
 2. **GHI MEMORY (bắt buộc):** *đã gom N cụm · block [tên] tạo/tái dùng · M call-sites thay · scope.* → để **lần sau đối chiếu, không gom lại + tái dùng** (rule always-update-mindset).
 3. Nếu tạo/đổi block canon → cập nhật `fe/components/<block>.md`.
 4. **PUSH:** sửa canon → **private ngay**; sạch business → **public** (rule `.claude/CANON.md`).
