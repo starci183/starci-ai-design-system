@@ -30,6 +30,9 @@ Nửa SCAN của cặp gom-component. Quét scope → gom cụm trùng → chố
    - Plan ngầm = "list những cái sắp làm" đầy đủ (thầy mở xem/đổi rank khi muốn); mỗi batch chỉ hiện 3. **Cạn cụm ⬜ → báo "hết trùng trong scope".**
 5. **→ GỢI Ý APPLY NGAY:** hỏi thầy "gom luôn session này không?" → đồng ý → `starci-fe-consolidate-components-apply <scope>`; không → để sau (BACKLOG bàn giao).
 
+## §Widget (BẮT BUỘC) — vẽ bản đồ gom
+Mỗi lần scan → `show_widget` (gọi `read_me` module `diagram`/`mockup` trước) render **bản đồ dedup**: MỌI cụm xếp theo impact-rank · đánh dấu **3 cụm batch này** (accent) vs **sắp-làm** (plan ngầm, muted) vs **giữ-riêng** (khác nghĩa) · mỗi cụm kèm **block đích** + **số call-site**. Thầy NHÌN map là thấy toàn cảnh + chọn nhanh, không chỉ đọc bảng.
+
 ## Ràng
 - Report + proposal, **KHÔNG sửa code / KHÔNG tạo block** (đó là apply).
 - Không đoán — cụm trùng phải neo call-sites thật. Nghi 2 thứ khác-nghĩa → giữ riêng, ghi rõ.
