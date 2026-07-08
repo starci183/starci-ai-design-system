@@ -42,6 +42,7 @@
 | [modal](./modal.md) | `Modal` (HeroUI) + `components/modals/*` + `ModalContainer` | Overlay chặn 1 bước |
 | [drawer](./drawer.md) | `Drawer` (HeroUI) + `components/drawers/*` + `DrawerContainer` | Panel trượt xem/chọn phụ |
 | [skeleton](./skeleton.md) | `blocks/skeleton/Skeleton` (compound) | Placeholder loading mirror-layout |
+| [chart](./chart.md) | `recharts` `BarChart`/`ResponsiveContainer` | Xu hướng theo thời gian — KHÔNG hand-roll div-height bars |
 
 ## TODO (chưa viết — element có thật nhưng chưa doc)
 

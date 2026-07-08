@@ -14,6 +14,7 @@
   cấp surface + divider. `{ value, label, align?: "start"|"center", size?: "md"|"lg" }` (size `lg` = `h2`
   cho 1 con số hero nổi bật; `md` = `h4` mặc định cho strip thường).
 - Đứng riêng KHÔNG có parent cấp frame → trông trần/vô hình — luôn đặt trong 1 hàng có surface.
+- **Đính chính (2026-07-09) — "parent cấp surface" KHÔNG có nghĩa `StatPair` phải trần 100%:** lượt đầu sửa card-in-card (`MetricCard`→`StatPair` khi đã có `LabeledCard` cha) bỏ khung SẠCH luôn → mỗi cell trần trụi, KHÔNG còn ranh giới nào giữa 3 số → thầy bắt lại: *"đỏ render dạng surface in surface, có border"*. Đúng bài (`[[card]]` §4): mỗi `StatPair` vẫn nên nằm trong 1 `<div className="rounded-xl border border-default p-3">` — BORDER + bg TRONG SUỐT (kế thừa nền cha), KHÔNG fill lần 2 (`bg-surface`) và KHÔNG bare-trần-không-viền. "Parent cấp surface" nghĩa là cell không tự fill riêng, không phải cell không có ranh giới nào.
 
 ## `Legend` (`blocks/stats/Legend`) — chú giải màu độc lập
 - Dải `dot + label` giải thích màu của MỘT/NHIỀU bar cùng thang (vd nhiều `SegmentBar` chia sẻ 1 thang màu độ
