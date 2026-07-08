@@ -9,7 +9,7 @@
   2. **Làm loãng quyết định chính** — bày ngang hàng với phần chính khiến user phân tâm khỏi 1 primary action.
   3. **Khối lớn nhưng không-bắt-buộc-thấy-ngay** — danh sách dài, form phụ, chi tiết tham khảo.
 - **Trigger = label-row clickable + caret** (KHÔNG phải nút lạc lõng): `[icon + label]` trái · `caret-right` phải, cả hàng hover/cursor. Class + pattern xem [[elements/label]] §2 (summary-row mở drawer). Caret slide khi hover.
-- **Drawer placement:** `right` desktop / `bottom` mobile (`useSmViewpoint`). Dùng block HeroUI `Drawer` (đã có ở repo: `E2eResultDrawer`…), KHÔNG tự chế overlay. Nội dung dài → bọc `ScrollShadow` ([[sticky-rail-overflow-wrap-scrollshadow]]).
+- **Drawer placement:** `right` desktop / `bottom` mobile (`useSmViewpoint`). Dùng block HeroUI `Drawer` (đã có ở repo: `E2eResultDrawer`…), KHÔNG tự chế overlay. Nội dung dài → bọc `ScrollShadow`.
 - **Ẩn label-row khi nội dung phụ rỗng/không khả dụng** — đừng để 1 hàng mở ra Drawer trống/vô dụng (vd cổng quốc tế khi đơn không có giá USD → ẩn luôn row). Đồng nhất "no dead rows".
 
 ## Drawer vs Modal vs inline (chọn cái nào)

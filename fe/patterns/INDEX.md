@@ -33,6 +33,7 @@
 | [[labeled-section-render-empty-not-self-hide]] | ✓ | Section có nhãn trên trang chủ-động-mở: rỗng → empty-state, không tự ẩn | — |
 | [[meter-tracks-out-of-box-default-target]] | ✓ | Meter tiến độ chạy out-of-box, không rỗng chờ config | — |
 | [[progress-block-growing-quantity-headline-not-vanity-strip]] | ✓ | Khối tiến độ = 1 đại lượng lớn dần làm headline, không stat-strip N số | — |
+| [[layout-must-funnel-to-courses-and-cover-full-data-state-matrix]] | ✓ | Mọi surface có CTA vào khóa + phủ ma trận rỗng/1/N/overflow/mixed-variant | Neo cho §empty của mọi pattern §1 |
 | [[search-filter-list-surface]] | STUB | Anatomy 4-phần: search·count·list·pager | Grounded ở `CourseCatalog`/`JobList` |
 | infinite-scroll-feed | TODO | Cursor-pagination "load more" / auto-sentinel | `CommunityFeed` + `InfiniteScrollSentinel` |
 | [[form-flow]] | STUB | RHF: validate → disable-on-invalid → submit → success-state | `JobPostForm` + `src/hooks/rhf/*` |
@@ -51,7 +52,8 @@
 ## Ghi chú — ứng viên GỘP (khi `/merge`)
 
 - **`when-rail` + `solving-surface-fullbleed-no-course-rails` + `fullbleed-canvas-no-chrome-and-orient-zoom`** → nội dung ĐẦY ĐỦ đã nằm ở 3 file riêng; `page-shell-selection.md` (mới) là LỚP DECISION đứng trên, KHÔNG thay thế. Khi `/merge`: cân nhắc rút "quy tắc gốc" của cả 3 vào `page-shell-selection.md` làm nguồn chính, 3 file cũ giữ làm phụ lục "Áp đầu"/case-by-case (đã có tiền lệ ở `accent-system` ⊇ `highlight-accent-as-detail-not-block-fill`, xem `README.md`).
-- **`course-home-no-duplicate-surfaces` + `learn-home-surfaces-share-flat-chrome` + `surface-lands-on-dashboard-no-auto-forward`** (+ `continue-resumes-content-not-capstone` · `resume-cta-only-when-away` ở /`principles/`) → cùng 1 cụm "home/overview surface IA" (4-5 file cho đúng 1 câu hỏi: home của 1 surface phải làm gì, không được làm gì). Gộp thành 1 doc `overview-surface-ia.md` khi `/merge`; `dashboard-hub.md` (pattern shell mới) chỉ nói SHAPE, không thay các luật IA này.
+- **`course-home-no-duplicate-surfaces` + `learn-home-surfaces-share-flat-chrome` + `surface-lands-on-dashboard-no-auto-forward`** (+ `continue-resumes-content-not-capstone` · `resume-cta-only-when-away` ở `product/`/`principles/`) → cùng 1 cụm "home/overview surface IA" (4-5 file cho đúng 1 câu hỏi: home của 1 surface phải làm gì, không được làm gì). Gộp thành 1 doc `overview-surface-ia.md` khi `/merge`; `dashboard-hub.md` (pattern shell mới) chỉ nói SHAPE, không thay các luật IA này.
+- **`labeled-section-render-empty-not-self-hide` + `layout-must-funnel-to-courses-and-cover-full-data-state-matrix`** → cùng nói về empty-state nhưng 1 cái là luật chung (section có nhãn), 1 cái là luật riêng StarCi (empty = phễu về khóa). Giữ 2 file (khác phạm vi) nhưng đã cross-link 2 chiều.
 
 ## Ca biên (giữ trong `patterns/` dù mỏng, vì gắn chặt 1 layout/flow cụ thể)
 `loading-feedback-three-tiers-splash-toploader-skeleton` · `overlay-from-popover-render-in-panel` · `selection-anchored-entry-and-intent-state` — nặng arch/build hơn layout thuần (gần `engineering/`), nhưng hành vi quan sát được là 1 FLOW trên trang → giữ ở đây theo lối `README.md` đã chốt ("Tầng 5 FE ARCH" tạm sống trong `patterns/concepts`).

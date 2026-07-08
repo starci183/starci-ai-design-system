@@ -40,10 +40,23 @@
 - **Secondary (nhãn dài) = `min-w-0 flex-1`** + nhãn bọc `<span className="truncate">` → lấp phần còn lại, dài quá thì ellipsis. `min-w-0` BẮT BUỘC (mặc định `min-width:auto` chặn truncate).
 - Phân vai: cái-phải-đọc-trọn (primary) = `shrink-0`; cái-chịu-cắt (secondary/label dài) = `flex-1` + truncate. Ref [[interactive-needs-hover]].
 
+## 6b. Nút `tertiary` full-width ĐỨNG MỘT MÌNH (sidebar/rail dọc) = căn TRÁI + truncate, không dùng center mặc định — CHỐT 2026-07-08
+- **Base `.button` mặc định `justify-center`** — hợp cho nút hug-content (CTA, action ngắn), nhưng khi ép `fullWidth`/`w-full` cho 1 nút ĐỨNG RIÊNG (không cặp icon-chỉ-báo bên phải như Select) trong sidebar/rail dọc (vd "Mẫu", "Trợ lý AI", "Dán CV có sẵn" trong CV editor), center làm icon+label trôi giữa khoảng trắng, đọc như "đang canh giữa cho đẹp" thay vì đọc tự nhiên trái→phải như mọi field/label khác cạnh nó.
+- **Fix:** `className="w-full justify-start"` (đè `justify-center` base) + label bọc `<span className="min-w-0 flex-1 truncate text-left">` (icon `shrink-0` đứng trước). `flex-1` lấp hết chỗ trống còn lại nên bản thân đã "căn trái" bất kể `justify-*` — 2 lớp phòng hờ (label ngắn vẫn neo trái qua `justify-start`, label dài tự cắt qua `truncate`).
+- Phân biệt §6 (hàng NHIỀU nút ngang, primary/secondary cùng hàng): đây là **1 nút full-width đứng riêng, xếp DỌC** trong sidebar — không có nút thứ 2 cùng hàng để so đo shrink-0/flex-1.
+- Áp đầu: CV editor sidebar — "Mẫu" (`Button tertiary fullWidth`), "Trợ lý AI" (`GradeModelDropdown isButton isButtonFullWidth`), "Dán CV có sẵn"/"Chỉnh theo tin tuyển dụng" (`Button tertiary className="w-full justify-start"`).
+
+## 6c. Nút gọi API/async = `isPending` (HeroUI idiom) + spinner thay icon, KHÔNG tự chế `isDisabled`+ternary — CHỐT 2026-07-08
+- **Nút bấm → chạy async (tạo session, submit, mua...) PHẢI dùng prop `isPending` của HeroUI Button** (react-aria bên dưới → set `data-pending` → CSS `status-pending` tự dim + CHẶN press khi đang chạy). KHÔNG tự quản `isDisabled={isMutating}` + ternary icon ngoài — đó là chế lại thứ HeroUI đã có.
+- **HeroUI Button KHÔNG tự render spinner** (khác v2 `isLoading`). Phải TỰ đặt `<Spinner>` qua **render-prop children**: `{({ isPending }) => (<>{isPending ? <Spinner size="sm" color="current" /> : <Icon/>}{label}</>)}`. `color="current"` để spinner theo màu chữ nút (primary→trắng). Idiom đã dùng: `ChallengeSubmissionPanel/SubmissionRow`.
+- **Nhiều nút CHIA CHUNG 1 mutation** (vd 2 nút start qna/design cùng `startSessionSwr`) → 1 state `startingMode` theo dõi nút NÀO đang chạy: nút được bấm `isPending={startingMode===x}`, nút kia `isDisabled={startingMode!==null && startingMode!==x}`. Bare `isMutating` cho cả 2 = quay CẢ HAI khi bấm 1 (sai).
+- **Reset pending:** lỗi/return sớm → set `startingMode=null` (nút quay lại). Thành công mà NAVIGATE đi (unmount) → KHÔNG reset (để spinner biến mất cùng lúc unmount, tránh flash icon 1 frame trước khi route swap).
+- Thầy chốt (Mock Interview): *"khi bấm nút gọi api tạo session thì cái cửa sẽ thay bằng hiệu ứng quay quay"* → icon `DoorOpenIcon` swap sang `Spinner` khi `isPending`.
+
 ## 7. Hàng nút "THANG" (rating/grade/độ-khó) = 1 treatment NHẤT QUÁN theo ramp (STRICT)
 - Hàng nút biểu thị 1 THANG bậc (Again/Hard/Good/Easy · độ khó) = cùng 1 "da", khác nhau CHỈ ở hue theo ramp — KHÔNG mỗi nút 1 variant (solid/outline/ghost lộn xộn = "không đều màu"). Chuẩn: tất cả **soft-tint `bg-token/10 text-token`**, hue chạy ramp (đỏ→cam→xanh-lá→accent: Quên `danger` · Khó `warning` · Được `success` · Dễ `accent`).
 - **Equal-width lấp ô:** `grid grid-cols-4` + nút `w-full` (mobile `grid-cols-2`), KHÔNG hug-content + `justify-between`.
-- **Dùng plain `<button>` + utility tint, KHÔNG HeroUI `Button`** — Button chỉ có ramp 1 màu, style unlayered ĐÈ utility `bg-token/10` (tint không ăn — gotcha [[item-card-meta-inside-bounded-object]]). Block sở hữu style (vd `RatingBar`).
+- **Dùng plain `<button>` + utility tint, KHÔNG HeroUI `Button`** — Button chỉ có ramp 1 màu, style unlayered ĐÈ utility `bg-token/10` (tint không ăn). Block sở hữu style (vd `RatingBar`).
 
 ## Liên quan
-- [[elements/icon]] (arrow trailing, cỡ theo text) · [[elements/color]] (primary solid + accent-fg trắng; active tint) · [[elements/alert]] (nút CTA trong alert theo status) · [[editor-shell-navbar-toolbar-fullheight-sidebar-and-control-button-semantics]] (draft nguồn).
+- [[elements/icon]] (arrow trailing, cỡ theo text) · [[elements/color]] (primary solid + accent-fg trắng; active tint) · [[elements/alert]] (nút CTA trong alert theo status).

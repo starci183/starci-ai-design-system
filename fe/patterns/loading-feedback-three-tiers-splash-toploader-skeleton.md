@@ -1,11 +1,11 @@
 # Concept — 3 TẦNG loading TÁCH BẠCH: entry SPLASH (cold load) · TOP-BAR (nav SPA) · region SKELETON; hand-roll không dep, splash = overlay tự-tắt (KHÔNG raw `<Suspense fallback>`)
 
-> Heuristic loading/feedback (họ `concepts/*`, FE App Router + React 19). Thầy 2026-06-27: *"tạo trang suspense với mỗi khi load trang có thanh lướt trên đầu"*. Bổ trợ [[starci-async]] (region skeleton) · [[sticky]] · [[scrollbar-gutter]].
+> Heuristic loading/feedback (họ `concepts/*`, FE App Router + React 19). Thầy 2026-06-27: *"tạo trang suspense với mỗi khi load trang có thanh lướt trên đầu"*. Bổ trợ [[sticky]] · [[scrollbar-gutter]].
 
 ## Luật (STRICT) — 3 tầng, đừng gộp
 1. **Cold load (vào web) → SPLASH full-screen** (`AppSplash`): logo + thanh accent, mờ đi khi app ready.
 2. **Điều hướng SPA (mỗi nav) → TOP BAR** (`TopLoader`): thanh accent 3px trượt mép trên, trickle → 100% rồi mờ.
-3. **Region fetch trong trang → `AsyncContent` skeleton** ([[starci-async]], GIỮ).
+3. **Region fetch trong trang → `AsyncContent` skeleton** (GIỮ).
 - Mỗi tầng 1 affordance; **dùng CHUNG đúng 1 thanh accent 3px** (splash + top bar) cho nhất quán.
 
 ## Top bar = HAND-ROLL, KHÔNG thêm dep (`nextjs-toploader`/`@bprogress`)
@@ -30,4 +30,4 @@
 - `blocks/layout/TopLoader` + `blocks/layout/AppSplash` (client), mount TRONG SwrProvider (sau `<UseEffects/>`, trước `<Navbar/>`). Keyframe (`appSplashTrickle`) ở `globals.css` + guard reduced-motion. `history.pushState` patch bắt cả `router.push` (App Router đẩy URL đầu nav) — nếu 1 số CTA `router.push` không hiện bar thì cân nhắc intercept anchor-click / wrap router. Per-route `loading.tsx` skeleton (route nặng) = optional (`/starci-fe-skeleton-apply`).
 
 ## Liên quan
-- [[starci-async]] (region skeleton — tầng 3) · [[sticky]] / [[scrollbar-gutter]] (layout chrome) · [[heatmap-trong-la-bug-token-khong-redesign]] (đừng kéo dep khi tự dựng đủ).
+- [[sticky]] / [[scrollbar-gutter]] (layout chrome) · [[heatmap-trong-la-bug-token-khong-redesign]] (đừng kéo dep khi tự dựng đủ).

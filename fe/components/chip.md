@@ -9,7 +9,7 @@
 
 ## 2. Màu chip = `bg-<color>/10 text-<color>` (override className), KHÔNG đổi component
 - **Chip muốn màu (semantic HOẶC brand) = override `className="bg-<color>/10 text-<color>"`** trên `<Chip>` (tint sáng /10 + chữ đậm màu). KHÔNG tự chế chip mới, KHÔNG dựa mỗi `color` prop (HeroUI soft mặc định tối hơn).
-  - **Semantic token:** `bg-accent/10 text-accent` · `bg-success/10 text-success` · `bg-danger/10 text-danger` (vd eyebrow landing = `bg-accent/10 text-accent`; "Đã đọc" = `bg-success/10 text-success` — ref [[three-tier-page-layout]]).
+  - **Semantic token:** `bg-accent/10 text-accent` · `bg-success/10 text-success` · `bg-danger/10 text-danger` (vd eyebrow landing = `bg-accent/10 text-accent`; "Đã đọc" = `bg-success/10 text-success`).
   - **Brand color (hex, vd logo ngôn ngữ):** `bg-[#3178C6]/10 text-[#3178C6]` (TS) · `text-[#E76F00]` (Java) · `#8B5CF6` (C#) · `#00ADD8` (Go). Class phải là **literal trong source** (constant/map) để Tailwind build ra — KHÔNG ghép từ biến runtime (`bg-[${hex}]` không build). Data-driven màu → lưu sẵn chuỗi className trong constant.
 - Override `bg`/`text` qua className áp ĐƯỢC trên `<Chip>` (đã verify: read-badge + brand chips). KHÔNG cần `!`.
 
@@ -33,4 +33,4 @@
 - `SubmissionResult`/`GradingByline` (2026-06-28): "chấm bởi `<model>`" từ `<Chip font-mono>` → **text thuần** (sparkle accent size-5 + chữ sans foreground) + `AiCategoryChip` chip bên cạnh. Hết chip-cạnh-chip, hết mono.
 
 ## Liên quan
-- [[three-tier-page-layout]] (chip semantic nổi = `bg-<token>/10 text-<token>`) · [[no-uppercase-text]] / [[no-emoji]] (nội dung chip) · [[concepts/single-source-render]] (1 element = 1 component).
+- [[no-uppercase-text]] / [[no-emoji]] (nội dung chip) · [[concepts/single-source-render]] (1 element = 1 component).

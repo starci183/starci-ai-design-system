@@ -14,11 +14,11 @@
 
 ## Phân biệt
 - **Khối rộng nội dung** (đọc được, cần giữ kích thước) → `overflow-x-auto` (cuộn). Vd diagram, bảng, code.
-- **Rail/panel dài theo CHIỀU DỌC** vượt viewport → `ScrollShadow` (fade mép) — [[sticky-rail-overflow-wrap-scrollshadow]]. Khác trục (dọc vs ngang) nhưng cùng họ "container hóa overflow, đừng để tràn".
+- **Rail/panel dài theo CHIỀU DỌC** vượt viewport → `ScrollShadow` (fade mép). Khác trục (dọc vs ngang) nhưng cùng họ "container hóa overflow, đừng để tràn".
 - **Jitter do scrollbar dọc hiện/ẩn** → `html { overflow-y: scroll; scrollbar-gutter: stable }` — [[scrollbar-gutter]].
 
 ## Áp đầu (2026-06-27)
 - `MarkdownContent/MermaidDiagram`: div bọc SVG `[&_svg]:h-auto [&_svg]:max-w-full` → thêm **`overflow-x-auto`**. Diagram rộng giờ cuộn trong figure, cột đọc co lại bình thường, hết tràn body. (Code block/table trong MarkdownContent vốn đã tự cuộn — mermaid là khối thiếu overflow.)
 
 ## Liên quan
-- [[scrollbar-gutter]] (overflow-y scroll + scrollbar-gutter chống jitter) · [[sticky-rail-overflow-wrap-scrollshadow]] (overflow DỌC của rail → ScrollShadow) · [[gap]] / [[three-tier-page-layout]] (cột đọc `max-w-3xl` + min-w-0).
+- [[scrollbar-gutter]] (overflow-y scroll + scrollbar-gutter chống jitter) · [[gap]] (cột đọc `max-w-3xl` + min-w-0).

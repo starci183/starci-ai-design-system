@@ -6,7 +6,7 @@
 
 ## Khung (STRICT)
 - **Full-bleed, BỎ rail khóa + chrome** (route bật `fullBleed`) — rail điều hướng khóa lúc này chỉ gây nhiễu. Đường lùi = **1 back-link "← Thoát"** là đủ ([[solving-surface-fullbleed-no-course-rails]] tinh thần).
-- **2 pane:** TRÁI = **context/hội thoại** (đề · người phỏng vấn · câu hỏi · tiến độ · ô trả lời) · PHẢI = **workspace TOOL-TABS** (Whiteboard · Code · Ghi chú — [[tabs]] /  Luật 3). Workspace là **pane HẠNG NHẤT**, KHÔNG toggle "+ thêm" ẩn dưới.
+- **2 pane:** TRÁI = **context/hội thoại** (đề · người phỏng vấn · câu hỏi · tiến độ · ô trả lời) · PHẢI = **workspace TOOL-TABS** (Whiteboard · Code · Ghi chú — [[tabs]]). Workspace là **pane HẠNG NHẤT**, KHÔNG toggle "+ thêm" ẩn dưới.
 - Grid `lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]`; mỗi pane cuộn riêng (`ScrollShadow`), không để cả trang cuộn.
 
 ## 2-pane CỨNG vs workspace BUNG-THEO-YÊU-CẦU (chọn theo tần suất cần tool)
@@ -17,8 +17,10 @@
 ## Mobile
 2-pane → **xếp dọc**: context trên, workspace = 1 tab-strip/collapsible dưới ([[responsive-regions]]). 1 việc/màn, không nhồi 2 pane cạnh nhau trên màn hẹp.
 
-## Áp đầu (2026-07-07 — ✅ thầy duyệt blueprint, đang build)
-Mock Interview pha `interview`: chọn **bung-theo-yêu-cầu cho `qna`** (1 cột rộng, pane Code tự mở khi given-code) · **2-pane cứng cho `design`** (whiteboard suốt) — 1 shell full-bleed chung, khác nhau ở lúc-mở-pane, KHÔNG 2 layout rời như hiện tại. Route bật `fullBleed` khi `phase===interview`; workspace = pane hạng nhất (bỏ toggle ẩn). Prototype: `fe/prototypes/mock-interview.html`. Ref [[surface-job-drives-layout]] §Áp đầu.
+## Áp đầu (2026-07-07 chốt · 2026-07-08 xác nhận ĐÃ ÁP + fix 1 bug)
+Mock Interview pha `interview`: **bung-theo-yêu-cầu cho `qna`** (1 cột rộng, pane Code tự mở khi given-code, `MockInterviewSession/index.tsx`) · **2-pane cứng cho `design`** (whiteboard suốt) — 1 shell full-bleed chung, khác nhau ở lúc-mở-pane. Route bật `fullBleed` khi `phase===interview`; workspace = pane hạng nhất (nút mở/ẩn, không phải toggle "+ thêm" ẩn dưới). Prototype: `fe/prototypes/mock-interview.html`.
+- **Bug đã fix (2026-07-08):** `workspaceOpen` là state CẤP-PHIÊN, tự mở đúng khi câu có `givenCode` nhưng KHÔNG tự đóng cho câu sau không cần → workspace dính mở hết phiên (phá đúng ý "bung theo yêu cầu", vi phạm §2 dòng trên "đừng phí nửa màn cho câu không cần"). Fix: `workspaceAutoOpenedRef` (ref, không phải state — bookkeeping thuần) đánh dấu open do AUTO (givenCode) hay MANUAL (user tự bấm "Thêm phác thảo"); câu sau không cần code → chỉ auto-đóng khi ref=auto, GIỮ NGUYÊN khi user tự mở (không clobber notes user đang viết).
+- Ref [[surface-job-drives-layout]] §Áp đầu.
 
 ## Liên quan
 [[surface-job-drives-layout]] · [[solving-surface-fullbleed-no-course-rails]] · [[fullbleed-canvas-no-chrome-and-orient-zoom]] · [[page-shell-selection]] (câu hỏi 1) · [[responsive-regions]] · [[tabs]].

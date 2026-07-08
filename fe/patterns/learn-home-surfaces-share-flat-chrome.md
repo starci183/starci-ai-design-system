@@ -1,6 +1,6 @@
 # Concept — Các "home" trong khu Learn dùng CHUNG 1 chrome flat (content dashboard là chuẩn)
 
-> Heuristic (họ `concepts/*`). Rút từ "dựa content dashboard để redesign personal project". Bổ trợ [[course-home-no-duplicate-surfaces]] + .
+> Heuristic (họ `concepts/*`). Rút từ "dựa content dashboard để redesign personal project". Bổ trợ [[course-home-no-duplicate-surfaces]].
 
 ## Quy tắc (STRICT)
 - **Mọi trang "home/overview" của 1 surface trong khu Learn (content home, personal-project home…) dùng CHUNG 1 chrome flat**, KHÔNG mỗi trang một phong cách. Khuôn chuẩn:

@@ -22,7 +22,7 @@
 - **PHÂN BIỆT với CHIP:** chip vẫn `bg-<token>/10` alpha (§2, [[elements/chip]]) — chip nhỏ, trên surface phẳng không glow, alpha OK. Box/node lớn trên glow → color-mix đặc.
 - **Chỉ tô node CÓ NGHĨA** (focal=accent + problem=danger), còn lại neutral (`bg-surface`+`border-default`) — 8 node đủ màu = cầu vồng, loãng. Cùng tinh thần [[accent-system]] (accent là gia vị, vài điểm).
 - **Chữ giữ `text-foreground`** trên nền tone-đặc (tone do viền+nền gánh; đừng tô chữ theo tone → giảm contrast).
-- **NGOẠI LỆ node NEUTRAL trên glow:** để `color-mix(in oklch, var(--surface) ~80%, transparent)` + `backdrop-blur` (translucent hứng glow → node "sống", không đen chết). Phân vai: **tone = đặc (pop) · neutral = glass-trong (hứng glow)**. Ref [[tone-node-fill-solid-colormix-not-alpha]].
+- **NGOẠI LỆ node NEUTRAL trên glow:** để `color-mix(in oklch, var(--surface) ~80%, transparent)` + `backdrop-blur` (translucent hứng glow → node "sống", không đen chết). Phân vai: **tone = đặc (pop) · neutral = glass-trong (hứng glow)**.
 
 ## 5. A11y
 - Contrast ≥ 4.5:1 (text), ≥3:1 (phụ/icon). `text-<Color>` trên `bg-<Color>/10` (≈ chữ-màu-trên-trắng): đậm OK; **accent/bright → verify**. Màu KHÔNG là kênh thông tin duy nhất (kèm icon/label).

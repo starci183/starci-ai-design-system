@@ -1,6 +1,6 @@
 # Element — RichText (MarkdownContent rendering)
 
-> Element doc: field nào render qua `MarkdownContent` (RichText) vs text thô. Tổng quát hoá [[description-fields-render-markdown-compact]] sau scan content (2026-06-25). Chi tiết ở `drafts/*` cho tới `/merge`.
+> Element doc: field nào render qua `MarkdownContent` (RichText) vs text thô. Chi tiết ở `drafts/*` cho tới `/merge`.
 
 ## 1. Luật — MỌI field do người dạy soạn render qua MarkdownContent
 - **Bất kỳ field hiển thị nào người dạy/BE soạn có thể chứa markdown (inline-code `` `x` ``, `**bold**`, list…) PHẢI render qua `MarkdownContent`, KHÔNG `<Typography>`/`<span>`/`<div>` text thô.** Text thô làm **lòi cú pháp** (backtick `` `servedBy` `` hiện nguyên `` ` ``).
@@ -18,7 +18,7 @@
 - **Bao gồm cả TITLE** (challenge title, requirement title, step title) — KHÔNG chỉ body. Title là chỗ hay sót (FE hay render `<span>{item.title}</span>` thô).
 
 ## 2. Hai mode render
-- **Block (body, description nhiều dòng):** `<MarkdownContent markdown={x} />` (compact mặc định; `reading` chỉ cho cột đọc lesson). Preview/card cắt dòng → `className="[&_p]:m-0 [&_p]:line-clamp-2"` (clamp `<p>` bên trong, không clamp div ngoài). Ref [[description-fields-render-markdown-compact]].
+- **Block (body, description nhiều dòng):** `<MarkdownContent markdown={x} />` (compact mặc định; `reading` chỉ cho cột đọc lesson). Preview/card cắt dòng → `className="[&_p]:m-0 [&_p]:line-clamp-2"` (clamp `<p>` bên trong, không clamp div ngoài).
 - **Inline 1 dòng (TITLE trong accordion trigger / heading / row):** MarkdownContent bọc text trong `<p>` block → phá layout title. Dùng arbitrary variant ép inline + bỏ margin:
   `<MarkdownContent markdown={item.title} className="[&_p]:m-0 [&_p]:inline" />` (giữ cỡ/đậm của title qua class wrapper: `text-base font-semibold`). Title vẫn 1 dòng nhưng inline-code render đúng.
 - **Guard rỗng:** `x ? <MarkdownContent .../> : null`.
@@ -39,4 +39,4 @@
 - **Nguyên tắc:** mỗi quyết định ở đúng tầng — *cỡ/đậm/màu chữ* = renderer (`map.tsx`); *bề rộng cột đọc / căn giữa* = layout cột (LessonReader). Trộn → lệch mép hoặc heading "mất chức".
 
 ## Liên quan
-- [[description-fields-render-markdown-compact]] (block compact + clamp) · [[outcome-list-as-labeledcard-check-list]] (outputs row + MarkdownContent) · [[elements/accordion]] (title trong accordion trigger) · [[lesson-render-deep-headings-and-measure]] (heading sâu + measure).
+- [[elements/accordion]] (title trong accordion trigger).

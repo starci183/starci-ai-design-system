@@ -14,4 +14,4 @@
 - **Empty 2 kiểu** (`JobList`): platform-empty (0 item toàn hệ thống, KHÔNG filter) → funnel 2 chiều ("chưa ai đăng — bạn đăng thử?"); filtered-empty (có filter, 0 khớp) → CTA "xoá bộ lọc". Đừng gộp chung 1 empty-state cho cả 2 nguyên nhân.
 
 ## Liên quan
-[[search-filter-list-surface]] (anatomy chung, khi KHÔNG cần grid/tile) · card (component canon — grid/line CourseCard, radius đồng bộ 2 view) · [[page-shell-selection]].
+[[search-filter-list-surface]] (anatomy chung, khi KHÔNG cần grid/tile) · [[layout-must-funnel-to-courses-and-cover-full-data-state-matrix]] (ma trận rỗng/1/N/overflow) · card (component canon — grid/line CourseCard, radius đồng bộ 2 view) · [[page-shell-selection]].

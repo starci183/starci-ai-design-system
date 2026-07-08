@@ -11,6 +11,7 @@
 | Flow | File | Shell chính | Trạng thái |
 |---|---|---|---|
 | Mock Interview — setup→interview→grading→scorecard | `mock-interview.html` | interview = full-bleed 2-pane ([[full-bleed-work-surface]]) | ✅ blueprint · **element-aware** (khối = block thật) · chờ duyệt → build |
+| Flashcards "Hỏi nhanh" — setup→active(cloze)→recap→empty | `flashcard-interview-flow.html` | setup/recap = centered `max-w-3xl` · active = rộng hơn (1-cột, không 2-pane) | ✅ duyệt 2026-07-08 |
 
 ## Dựng prototype mới (trong skill)
 1. `cp _TEMPLATE.html ../../../<scratch>/<feature>-flow/index.html` (hoặc lưu bản mẫu `fe/prototypes/<feature>.html`), điền màn theo comment.

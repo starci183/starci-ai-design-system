@@ -14,4 +14,4 @@
 4. **Empty/gate thay body** — `CartView` giỏ rỗng → funnel "Duyệt khóa học"; `JobPostForm` chưa đăng nhập → thông báo tĩnh, ẨN form (không render form disabled).
 
 ## Liên quan
-[[form-flow]] (validate/disable/autosave BÊN TRONG form) · card component §6 (gộp section theo nghĩa) · [[page-shell-selection]].
+[[form-flow]] (validate/disable/autosave BÊN TRONG form) · [[layout-must-funnel-to-courses-and-cover-full-data-state-matrix]] (rỗng = funnel, không ngõ cụt) · card component §6 (gộp section theo nghĩa) · [[page-shell-selection]].

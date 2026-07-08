@@ -8,4 +8,4 @@
 - **i18n string KHÔNG chứa emoji.** Giữ message thuần chữ; trang trí (icon) là việc của component, không nhét vào bản dịch.
 
 ## Áp đầu (2026-06-24)
-- `PaymentModal` công tắc tiền tệ: bỏ `🇻🇳`/`🌐` khỏi `payment.currency.{vnd,usd}` (vi + en) → chỉ còn chữ. Ref [[payment-currency-toggle-and-price-breakdown]].
+- `PaymentModal` công tắc tiền tệ: bỏ `🇻🇳`/`🌐` khỏi `payment.currency.{vnd,usd}` (vi + en) → chỉ còn chữ.

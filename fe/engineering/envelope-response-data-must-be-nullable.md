@@ -1,6 +1,6 @@
 # Concept — Field `data` của MỌI GraphQL envelope response PHẢI `nullable: true`
 
-> Heuristic engineering (họ `concepts/*`, BE GraphQL). Cùng họ "lỗi BE bị che" với [[opaque-global-id-must-decode-before-raw-id-mutation]] + .
+> Heuristic engineering (họ `concepts/*`, BE GraphQL). Cùng họ "lỗi BE bị che" với [[opaque-global-id-must-decode-before-raw-id-mutation]].
 
 ## Root cause
 `GraphQLTransformInterceptor` (`apollo/server/interceptors/graphql-transform.interceptor.ts`):

@@ -1,7 +1,7 @@
 ---
 name: starci-doc-audit
 description: >
-  Audit the StarCi KNOWLEDGE-BASE docs under `.claude/fe/` and `.claude/be/` for HEALTH — dead `[[wikilinks]]`,
+  Audit the StarCi KNOWLEDGE-BASE docs under `.claude/fe/` and `.claude/be/` for HEALTH — dead wikilinks,
   mis-categorized files (a rule in the wrong shelf), staleness vs the REAL source (claims about blocks/entities/fields/
   tokens that no longer exist), duplication / merge candidates, coverage gaps (source with no doc), and INDEX / README /
   BACKLOG count-and-status drift. Runs a deterministic grep GATE + fan-out SONNET semantic readers grounded in real
@@ -19,7 +19,7 @@ vào source THẬT** — "stale" phải verify grep, không đoán. Mặc địn
 `.claude/fe/{foundations,layouts,components,patterns,principles,features,prototypes,proposals}` + `.claude/be/{rules,concepts}` + README/INDEX/BACKLOG mỗi kệ. (Arg = giới hạn 1 kệ/đường dẫn.)
 
 ## 6 trục audit
-1. **Link chết** — mọi `[[name]]` KHÔNG có file `name.md` trong cây. (deterministic)
+1. **Link chết** — mọi wikilink KHÔNG có file `.md` đích trong cây. (deterministic)
 2. **Mis-shelve** — file nằm sai kệ (rule engineering ở `principles`, component-rule ở `patterns`, product-axiom ở design…). (semantic)
 3. **Stale vs source** — doc nhắc block/entity/field/token/route **không còn** trong source thật (`starci-academy` FE / `starci-academy-backend` BE). (grep source)
 4. **Trùng / gộp** — ≥2 file cùng nội dung → merge candidate. (semantic)
@@ -27,7 +27,7 @@ vào source THẬT** — "stale" phải verify grep, không đoán. Mặc địn
 6. **Index drift** — count trong INDEX/README ≠ số file thật; BACKLOG status sai (proposal ✅ mà code chưa build; PENDING mà đã build). (deterministic + semantic)
 
 ## Quy trình
-1. **GATE deterministic (grep/script):** trích mọi `[[wikilink]]` → check file tồn tại; đếm file/kệ vs con số trong INDEX/README; grep path-ref (`../x.md`, `shelf/y`) chết. Ra danh sách cứng TRƯỚC (rẻ, chắc).
+1. **GATE deterministic (grep/script):** trích mọi wikilink → check file tồn tại; đếm file/kệ vs con số trong INDEX/README; grep path-ref (`../x.md`, `shelf/y`) chết. Ra danh sách cứng TRƯỚC (rẻ, chắc).
 2. **Fan-out SONNET readers (per kệ):** mỗi agent đọc doc kệ mình + **đối chiếu source thật** → mis-shelve / stale / trùng / gap. **Neo vào file:line source**; không chắc → đánh "cần verify", không phán.
 3. **OPUS synthesize:** gộp + dedupe finding, rank theo severity, đề xuất fix (dời / gộp / rewrite / xoá) + file:line. **Report-only.**
 

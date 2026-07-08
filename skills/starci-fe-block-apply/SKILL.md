@@ -1,20 +1,20 @@
 ---
 name: starci-fe-block-apply
 description: >
-  LIGHT sibling of `starci-fe-ux-apply` — BUILD/edit ONE block (a single reusable component's internals: its
+  LIGHT sibling of `starci-fe-layout-apply` — BUILD/edit ONE block (a single reusable component's internals: its
   `<Block>/index.tsx`, variants, states, styles, testids) in the MAIN StarCi Academy web app
   (`C:\Repositories\starci-academy`) at SMALL scope, much less effort than building a whole flow/page. Reads the block
   spec (from `starci-fe-block-brainstorm` or the request) + `fe/components/<block>.md` + the real source, assembles it
   from canonical HeroUI/existing primitives (NO hand-rolling), uses design tokens + spacing scale, verifies tsc/eslint +
   previews the block in isolation, then writes any reusable ruling back to `fe/components/`. This is what
-  `starci-fe-ux-apply` hands block INTERNALS to. Use INSTEAD of the layout apply when the change lives inside ONE block.
+  `starci-fe-layout-apply` hands block INTERNALS to. Use INSTEAD of the layout apply when the change lives inside ONE block.
   For a big/BE-touching block it MAY use Opus-spec → Sonnet-code; small blocks build directly. Trigger when the user
   types `/starci-fe-block-apply <block>`, or asks to build/edit/fix a single component/block.
 ---
 
 # /starci-fe-block-apply — Dựng/sửa 1 BLOCK (nhẹ, phạm vi nhỏ)
 
-Bản NHẸ của ux-apply: chỉ **internals của 1 block**. Ít effort. Đây là thứ `starci-fe-ux-apply` bàn giao (layout dựng
+Bản NHẸ của layout-apply: chỉ **internals của 1 block**. Ít effort. Đây là thứ `starci-fe-layout-apply` bàn giao (layout dựng
 khung → block-apply dựng chi tiết block). Dùng khi thay đổi nằm trong **1 block**.
 
 ## Trước khi build
@@ -36,5 +36,5 @@ khung → block-apply dựng chi tiết block). Dùng khi thay đổi nằm tron
 
 ## Ràng / liên quan
 - Bám spec block; đổi phạm vi (thành cả layout) → quay lại `starci-fe-layout-brainstorm`. KHÔNG tự chế primitive.
-- Thiết kế block trước → `starci-fe-block-brainstorm` · block nằm trong flow lớn → cặp layout (`starci-fe-layout-brainstorm` → `starci-fe-ux-apply`).
+- Thiết kế block trước → `starci-fe-block-brainstorm` · block nằm trong flow lớn → cặp layout (`starci-fe-layout-brainstorm` → `starci-fe-layout-apply`).
 - Canon: `fe/components/` · `fe/foundations/` · `fe/principles/` · `fe/README.md`.

@@ -7,7 +7,7 @@
 - **Offset chuẩn = `sticky top-[88px]`** = **navbar `h-16` (64px) + padding-top cột `py-6` (24px) = 88px** = ĐÚNG vị trí nghỉ của phần tử. Pin ngay tại đó → khi scroll card **đứng yên**, KHÔNG nhúc nhích/giật. Kèm `self-start`. (top-22 = 88px nhưng 22 không có trong scale Tailwind mặc định → dùng arbitrary `top-[88px]`.)
 - Công thức: `top = chiều-cao-navbar + padding-top-của-cột-chứa`. Trang khác padding khác → tính lại (vd cột `py-8` → `top-[96px]`).
 - **CẤM `top-16` (flush sát navbar)** cho card/rail có padding cột phía trên: pin CAO hơn vị trí nghỉ → scroll bị **giật/kéo lên sát mép** (thầy bác 2026-06-24). `top-16` chỉ cho phần tử vốn chạm mép (full-bleed, không padding trên).
-- Container ngoài lo VỊ TRÍ (`sticky top-[88px] self-start`); nội dung dài vượt viewport → bọc `ScrollShadow` (max-h + overflow), KHÔNG overflow trần. Ref [[sticky-rail-overflow-wrap-scrollshadow]].
+- Container ngoài lo VỊ TRÍ (`sticky top-[88px] self-start`); nội dung dài vượt viewport → bọc `ScrollShadow` (max-h + overflow), KHÔNG overflow trần.
 
 ## Scroll giữ nhịp header
 - Khi cuộn, **phần header trên (breadcrumb/title/desc/chips — vùng "đỏ") giữ nguyên gap/nhịp**; chỉ nội dung dưới cuộn. Sticky element bám mép, header không bị nén. Ref [[gap]].

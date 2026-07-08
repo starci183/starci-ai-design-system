@@ -1,6 +1,6 @@
 # Principle — Content Voice (Giọng & chữ nghĩa)
 
-> Nguyên tắc xuyên-suốt (họ `principles/*`). Umbrella gom [[no-emoji]] + [[no-uppercase-text]] (2 luật câm/cụ thể đã có) + phần copy tiếng Việt của  §10 thành 1 nguyên tắc "giọng nói" chung cho mọi UI string, không chỉ landing.
+> Nguyên tắc xuyên-suốt (họ `principles/*`). Umbrella gom [[no-emoji]] + [[no-uppercase-text]] (2 luật câm/cụ thể đã có) + phần copy tiếng Việt thành 1 nguyên tắc "giọng nói" chung cho mọi UI string, không chỉ landing.
 
 ## Rule of thumb
 **Copy tiếng Việt TỰ NHIÊN (không lẫn English khi đã có từ Việt tốt, dịch theo NGHĨA không word-for-word); i18n vi/en đầy đủ; không emoji, không viết hoa.**
@@ -12,7 +12,7 @@
 - **KHÔNG emoji** trong bất kỳ text/label/i18n string — cần biểu tượng thì dùng icon Phosphor ([[no-emoji]]).
 - **KHÔNG uppercase/ALL-CAPS** trừ khi được duyệt riêng cho đúng chỗ đó — phân cấp nhãn phụ bằng cỡ nhỏ + muted, không bằng viết hoa ([[no-uppercase-text]]).
 
-> Đã áp:  §10 (copy tiếng Việt: không lẫn English khi có từ Việt, dịch theo nghĩa, label song nhịp) · [[no-emoji]] · [[no-uppercase-text]].
+> Đã áp: [[no-emoji]] · [[no-uppercase-text]].
 
 ## Liên quan
 - [[no-emoji]] · [[no-uppercase-text]] · [[visual-hierarchy]] (label phụ = eyebrow câm, không hoa/không đậm hơn chính).

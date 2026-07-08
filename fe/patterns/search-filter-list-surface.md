@@ -13,4 +13,4 @@
 - **Filter facet** (optional, giữa search-row và list) — mỗi facet 1 control single-select RIÊNG DÒNG (`FlexWrapButtonRadio`), KHÔNG dồn vào chung hàng search.
 
 ## Liên quan
-[[catalog-grid]] (bản đầy-đủ, có grid⇆line) · [[asynccontent-remove-debug-hold]] (AsyncContent priority) · list, input (component canon) · [[page-shell-selection]].
+[[catalog-grid]] (bản đầy-đủ, có grid⇆line) · [[layout-must-funnel-to-courses-and-cover-full-data-state-matrix]] (ma trận rỗng/1/N/overflow) · [[asynccontent-remove-debug-hold]] (AsyncContent priority) · list, input (component canon) · [[page-shell-selection]].

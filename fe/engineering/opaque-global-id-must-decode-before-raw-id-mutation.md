@@ -1,6 +1,6 @@
 # Concept — Id từ query là OPAQUE global id (`toGlobalId`) → PHẢI `fromGlobalId(...).id` trước khi đưa vào mutation ăn raw db id
 
-> Heuristic engineering (họ `concepts/*`, BE↔FE id-contract). Cùng họ "lỗi im lặng vì id lệch loại" với  + .
+> Heuristic engineering (họ `concepts/*`, BE↔FE id-contract). Cùng họ "lỗi im lặng vì id lệch loại" với [[chat-session-list-lazy-create-and-search]] (caller cầm id khác loại).
 
 ## Root cause (id-contract lệch FE↔BE)
 - Resolver ENCODE id: `userGlobalId: toGlobalId(UserEntity.name, entry.userId)` → field là **opaque global id (base64)**, KHÔNG phải `users.id` thô (chủ ý: không lộ raw db id ra client).
@@ -13,4 +13,4 @@
 - **Phân biệt nguồn id:** id từ profile query có thể là raw (chạy OK); leaderboard/suggested-users encode → phải decode. KHÔNG giả định mọi `userId` cùng loại — soi resolver nguồn.
 
 ## Liên quan
-- [[envelope-response-data-must-be-nullable]] (cùng họ lỗi BE bị che).
+- [[chat-session-list-lazy-create-and-search]] (gateway resolve `sub → users.id` trước khi gọi service — 2 đường gọi phải truyền CÙNG loại id) · [[envelope-response-data-must-be-nullable]] (cùng họ lỗi BE bị che).

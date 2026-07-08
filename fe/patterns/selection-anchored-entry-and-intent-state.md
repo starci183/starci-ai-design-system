@@ -16,4 +16,4 @@
 - Cùng họ bẫy: reset thread chat CHỈ ở handler chuyển/tạo mới TƯỜNG MINH (`onSwitch`/`onNew`), KHÔNG trong effect-on-[sessionId] (create-mid-send cũng đổi id → effect sẽ xoá turn vừa append nếu đặt reset trong effect).
 
 ## Liên quan
-- [[content-reaction-footer-and-frameless-discussion]] (shared SWR key cross-tree, cùng họ "share state qua nguồn ngoài cây component") · [[when-drawer]] (panel/drawer overlay).
+- [[when-drawer]] (panel/drawer overlay).

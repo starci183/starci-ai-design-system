@@ -44,11 +44,7 @@
 |---|---|---|---|
 | [[accessibility]] | STUB | AA contrast · focus-visible ring · aria-label cho icon-only · màu không bao giờ là kênh thông tin duy nhất | color, icon, button, input |
 
-
-| Principle | Trạng thái | Rule of thumb | Chi phối |
-|---|---|---|---|
-
-## 7. Debugging
+## 6. Debugging
 
 | Principle | Trạng thái | Rule of thumb | Chi phối |
 |---|---|---|---|
@@ -60,7 +56,6 @@
 - ✅ `status-icon-overrides-base` · `challenge-section-labeledcard-quiet-eyebrow-icon-once` · `modal-body-no-padding-override-heroui-idiom` · `disable-vs-lock-and-perrow-autosave` → **DỜI sang `components/`** (luật component cụ thể; giữ nguyên nội dung, CHƯA fold vào file element đích — fold cần viết lại chữ, để sau).
 
 Còn lại (đúng chỗ, hoặc cần chẻ chữ → không dời/xoá được):
-- `landing-marketing.md` → GIỮ Ở ĐÂY; §1 grounded-in-data là principle (đã rút ra `grounded-in-data.md`/`content-voice.md`), §2-10 là pattern/product cho landing — chẻ khi cần.
 - `card.md` (ở đây) = heuristic "khi nào dựng card" (đúng chỗ). KHÁC `components/card.md` (canon Card).
 
 ## Cách dùng

@@ -19,4 +19,4 @@
 ## Áp đầu (2026-06-25)
 - `TopLearners`: user `<Link>` → `text-foreground no-underline transition-opacity hover:opacity-60` + tên `<span>` plain. Mirror `LeagueRow`.
 - `CourseRow` (dashboard Khóa học): `SurfaceListCardItem hover="underline"` + title `group-hover:underline` (bỏ fill). Thầy: *"cái này cũng underline được không, hover bg chỉ cho accordion thôi"*.
-- Trending title = underline (mode 1). Payment method row = fill (mode 3, select-tại-chỗ). Ref [[surfacelistcard-item-interactive-and-uniform-count-drop]].
+- Trending title = underline (mode 1). Payment method row = fill (mode 3, select-tại-chỗ).

@@ -21,9 +21,14 @@
 - Dấu hiệu sai: 1 state-machine `phase` render mọi pha trong CÙNG `max-w-*` centered + CÙNG rail — trong khi 1 pha là solve/interview cần full-bleed.
 - Chuyển shell theo pha là **adaptive-by-task** (không chỉ adaptive-by-viewport): pha đổi job → layout đổi.
 
-## Áp đầu (2026-07-07) — Mock Interview (đang sai)
-`MockInterviewSession` nhồi CẢ 4 pha vào cột `max-w-2xl` trong LearnShell **còn nguyên rail khóa** (`learn/layout.tsx` chỉ `fullBleed={isMindMap}`), lại render pha interview 2 kiểu (qna 1-cột + workspace ẩn · design 2-pane). Đúng ra theo job:
+## Áp đầu (2026-07-07 chốt · 2026-07-08 xác nhận ĐÃ ÁP trong source) — Mock Interview
+`MockInterviewSession` đổi shell theo pha, ĐÚNG job:
 - **setup** (quyết/green-room) → centered · **interview** (làm-việc + tool) → **full-bleed 2-pane, bỏ rail** ([[full-bleed-work-surface]]) · **grading** (chờ) → centered interstitial · **scorecard** (kết quả) → centered.
-- Fix layout: route bật `fullBleed` khi `phase==="interview"`; setup/grading/scorecard giữ centered. Chi tiết shape → [[full-bleed-work-surface]].
+- Xác nhận trong source (2026-07-08, đọc `MockInterviewSession/index.tsx` + `learn/layout.tsx`): route bật `fullBleed` khi `phase==="interview"` (mirror qua `?phase=` URL) đúng đã áp; `mock-interview` vốn KHÔNG có rail ở bất kỳ pha nào (không nằm trong điều kiện `leftRail` của `learn/layout.tsx`) nên không có gì để "tắt" — `fullBleed` chỉ bỏ padding/max-width đọc-cột, không liên quan rail.
+- **Bug phát sinh khi build (đã fix 2026-07-08):** workspace `qna` (bung-theo-yêu-cầu) dùng 1 state cấp-phiên `workspaceOpen`, tự mở khi câu có `givenCode` nhưng KHÔNG tự đóng lại cho câu sau không cần — workspace dính mở hết phiên. Fix: thêm `workspaceAutoOpenedRef` phân biệt auto-open (đóng lại được ở câu sau) vs manual-open (user tự bấm, giữ nguyên). Ref [[full-bleed-work-surface]] §Áp đầu.
+
+## Áp đầu (2026-07-08) — Flashcards "Hỏi nhanh" (InterviewSession), nhẹ hơn Mock Interview
+Cùng anti-pattern nhưng NHẸ hơn: `Flashcards/index.tsx` bọc CẢ 3 pha (`setup`/`active`/`recap`) trong 1 `mx-auto max-w-3xl` — surface đã rail-less sẵn (không bị khoá rail như Mock Interview), nhưng pha `active` (làm-việc: cloze fill-blank + word bank) vẫn bị bó cùng width với pha "quyết"/"kết-quả". Fix: `InterviewSession` báo `phase` lên qua prop `onPhaseChange` (KHÔNG cần mirror URL như Mock Interview — parent là component cha trực tiếp, không phải layout ở tầng khác); `Flashcards/index.tsx` đổi `max-w-3xl` → `max-w-5xl` CHỈ khi `mode==="interview" && phase==="active"`. Không cần 2-pane (task nhẹ, không cần workspace phụ) — chỉ nới rộng 1 cột. Ruling: **cách báo phase lên phụ thuộc khoảng cách trong cây component** — parent liền kề dùng prop/callback đơn giản; parent ở tầng layout khác (ngoài subtree) mới cần mirror qua URL query param.
 
 ## Liên quan
+[[page-shell-selection]] (chọn shell cụ thể) · [[full-bleed-work-surface]] · [[region-model]] · [[responsive-regions]] · `patterns/layout-must-funnel-to-courses-and-cover-full-data-state-matrix` (mỗi pha vẫn phủ state + phễu).

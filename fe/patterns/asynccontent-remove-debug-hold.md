@@ -9,4 +9,4 @@
 - **`isLoading` truyền vào = điều kiện ĐÃ RESOLVE** (`isLoading && !data` / `isLoading && items.length === 0`): SWR `isLoading` chỉ true lần load đầu (chưa cache); revalidation (focus/mutate) KHÔNG bật lại skeleton.
 
 ## Liên quan
-- [[labeled-section-render-empty-not-self-hide]] (rỗng → empty-state, không tự ẩn) · [[frameless-section-empty-state-needs-card]].
+- [[labeled-section-render-empty-not-self-hide]] (rỗng → empty-state, không tự ẩn).

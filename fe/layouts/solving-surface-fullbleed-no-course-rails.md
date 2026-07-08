@@ -10,4 +10,4 @@
 - **Phân biệt tab (query param) vs route segment:** `?tab=challenges` = query param (đổi client-side trong cùng trang reader — VẪN giữ rail) — KHÁC trang SOLVE `…/challenges/<id>` (route segment → full-bleed). Đừng nhầm 2 thứ.
 
 ## Liên quan
-- [[fullbleed-canvas-no-chrome-and-orient-zoom]] (canvas full-bleed) · [[when-rail]] (khi nào dùng rail) · [[leaf-page-one-nav-and-combined-tab-toolbar]] (1 affordance lùi) · [[elements/header]] (back-link slot).
+- [[fullbleed-canvas-no-chrome-and-orient-zoom]] (canvas full-bleed) · [[when-rail]] (khi nào dùng rail) · [[elements/header]] (back-link slot).

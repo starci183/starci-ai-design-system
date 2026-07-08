@@ -82,7 +82,7 @@
   refactor hoặc chưa implement — flag để ai đụng social-brand-color biết mà TẠO/SỬA lại token, KHÔNG bịa giá
   trị hex rời rồi quên khai var.
 - **Container / measure (cột đọc `max-w-3xl`)** — không có CSS var, chỉ là convention Tailwind rải trong
-  `components/header.md` + `gap.md`; nhiều rule khác trỏ `[[three-tier-page-layout]]` (link chết, theo
+  `components/header.md` + `gap.md`; nhiều rule khác trỏ `three-tier-page-layout` (link chết, theo
   `README.md`). TODO-future: cân nhắc `measure.md` nếu cần 1 nhà tập trung cho quy ước bề rộng cột đọc — CHƯA
   viết (đây là layout convention, không phải 1 token `globals.css` thuần, nên để ngoài phạm vi lượt này).
 - **Aspect-ratio ảnh/cover** — không thấy 1 quy ước tập trung (mỗi block tự `aspect-[...]` rời) — TODO-future,

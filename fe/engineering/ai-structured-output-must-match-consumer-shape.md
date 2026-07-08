@@ -16,7 +16,7 @@
   bọc `.fields` → coi cả object là fields). Parse fail / non-array → **throw rõ**, đừng trả rác.
 - **Đối chiếu shape ở RANH GIỚI FE↔BE:** trước khi ship 1 AI-structured mutation, mở đúng file consumer (renderer/
   editor) xem nó đọc field nào → prompt+parse khớp 1-1. GraphQL JSON scalar là **opaque** → tsc KHÔNG bắt lệch shape;
-  lệch chỉ nổ **runtime** (`x.fields` undefined). Đây là họ với  + [[envelope-response-data-must-be-nullable]] (shape BE che lỗi runtime).
+  lệch chỉ nổ **runtime** (`x.fields` undefined). Đây là họ với [[envelope-response-data-must-be-nullable]] (shape BE che lỗi runtime).
 - **Dấu hiệu cần soi:** handler AI trả 1 mảng "phẳng" (string[] / {label,value}[]) trong khi consumer là editor/
   renderer giàu field → nghi lossy. Hỏi: consumer đọc `item.fields.X` hay `item` trực tiếp? Đọc `.fields` → BE phải
   emit `{id, fields}`.

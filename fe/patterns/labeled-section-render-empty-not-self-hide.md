@@ -8,4 +8,4 @@
 - **Empty-state đồng bộ:** title + **description hint** (vd "Đọc bài / vượt thử thách → hoạt động hiện ở đây"), khớp các tab anh em. Đừng để tab này có hint, tab kia trơ mỗi title.
 
 ## Liên quan
-- [[frameless-section-empty-state-needs-card]] (empty mặc đúng khung card) · [[asynccontent-remove-debug-hold]].
+- [[asynccontent-remove-debug-hold]] · [[layout-must-funnel-to-courses-and-cover-full-data-state-matrix]] (rỗng = phễu về khóa).

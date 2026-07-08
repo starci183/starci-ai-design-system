@@ -54,7 +54,7 @@
 - [[elements/color]] §2 (tonal active) · [[elements/button]] (CTA solid) · [[hover-style-matches-clickable-nature]] (hover theo bản chất) · [[elements/icon]] §2 (done=CheckCircle success) · [[disable-vs-lock-and-perrow-autosave]] (disable vs lock icon).
 
 ## Áp đầu (2026-06-30) — audit 181 file + fix list
-Phần lớn ĐÚNG sẵn (exemplar: `ContentMapRow`, `SidebarNavItem`, `OnThisPage`, `LeaderboardCategoryRail`, `FlashcardStudyRail`, `FlexWrapCardRadio`). Vi phạm gom 3 nhóm (chờ apply `/starci-fe-ux-apply`):
+Phần lớn ĐÚNG sẵn (exemplar: `ContentMapRow`, `SidebarNavItem`, `OnThisPage`, `LeaderboardCategoryRail`, `FlashcardStudyRail`, `FlexWrapCardRadio`). Vi phạm gom 3 nhóm (chờ apply `/starci-fe-layout-apply`):
 - **A. Status-tint (vụ screenshot):** `CourseContents` L322 + `PersonalProjectDashboard` L279 — bỏ `bg-accent/10` trên row current ("Đi tiếp lộ trình"), giữ play-icon accent + chữ foreground. → sidebar (selected tonal) ≠ body (status icon-only), hết lộn xộn.
 - **B. Accent-flood:** `FoundationItemThumbnail` L37 + `FoundationCategoryThumbnail` L39 (`bg-accent/10` nền card → `bg-default`) · `UpcomingLivestreamCard` L116 (`bg-accent/5` → bỏ) · `TrackLadder` L47 (`bg-accent/5` → chỉ `border-accent/40`) · `LeaderboardPodium` L75 (bệ `bg-accent/15` → bỏ fill).
 - **C. Leaderboard "của tôi" 3 kiểu → 1:** chuẩn `ring-accent` avatar + XP value accent, KHÔNG fill lớn. Sửa `LeaderboardPodium`/`LeaderboardChampion` cho khớp `LeaderboardTable`.

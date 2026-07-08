@@ -9,6 +9,24 @@
   tâm điểm, nền mờ. KHÔNG dùng cho "xem thêm thông tin phụ rồi quay lại luồng" — đó là `drawer.md`
   ([[when-drawer]] có bảng phân biệt đầy đủ).
 
+## CẤM `window.confirm`/`window.alert`/`window.prompt` — xác nhận LUÔN qua Modal (STRICT, CHỐT 2026-07-08)
+- **Mọi hộp xác nhận/cảnh báo hành động (rời phỏng vấn, kết thúc sớm, xoá, huỷ...) PHẢI render bằng HeroUI
+  `Modal` (qua block `ModalShell`), KHÔNG `window.confirm`/`alert`/`prompt`.** Native dialog phá da (browser
+  chrome xám lạc điệu), không theo theme dark/light, không token, chặn cứng cả tab — thầy chốt: *"không xài
+  alert"*.
+- **Dùng block `blocks/layout/ModalShell`** (`Modal > Backdrop > Container > Dialog > CloseTrigger + Header? +
+  Body`) — chỉ truyền `isOpen`/`onOpenChange`/`title`/`size="sm"` + body. KHÔNG tự hand-roll cây `<Modal>` cho 1
+  confirm đơn.
+- **Anatomy confirm chuẩn:** body = `Typography body-sm muted` (câu hỏi) + 1 hàng action `flex justify-end
+  gap-2`: nút HUỶ = `variant="tertiary"` (đóng modal) · nút XÁC NHẬN = `danger` nếu phá huỷ (abandon/xoá) hoặc
+  `primary` nếu là hành động tiến tới (chấm/lưu). Đóng modal TRƯỚC rồi mới chạy action (tránh flash).
+- **Nhiều confirm cùng surface có thể gom 1 state + 1 `ModalShell`** (vd `confirmAction: "leave" | "endEarly" |
+  null` → 1 modal đổi title/body/CTA theo action) thay vì N modal rời. Áp đầu: `MockInterviewSession` (rời
+  phỏng vấn + kết thúc sớm dùng chung 1 confirm modal).
+- Confirm 1-lần/ephemeral (state cục bộ trong 1 flow như phỏng vấn) được dùng `useState` + `ModalShell` tại
+  chỗ — KHÔNG bắt buộc qua zustand overlay store như modal dùng-nhiều-nơi (§Kiến trúc dưới). Store+Container chỉ
+  bắt buộc cho modal được TRIGGER TỪ NHIỀU NƠI trong app.
+
 ## Kiến trúc mở/đóng (STRICT — 1 nguồn cho MỌI modal trong app)
 - **Mỗi modal đọc open-state từ 1 zustand OVERLAY STORE riêng** (`hooks/zustand/overlay`, vd
   `usePaymentOverlayState`) — KHÔNG local `useState` ở component cha, KHÔNG props `isOpen` truyền tay qua

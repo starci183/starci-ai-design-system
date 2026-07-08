@@ -12,15 +12,15 @@
 
 ## Tách HAY gom card = quyết định theo MÀN (cả hai hợp lệ) — CHỐT 2026-06-30
 - **"Tách thành nhiều labeled card" và "gom về 1 card" đều hợp lệ; chọn theo từng màn + ý thầy, KHÔNG dogma "luôn tách"/"luôn gom".** 1 màn setup có thể tách N section thành N LabeledCard (rõ từng vùng) HOẶC gom hết vào 1 card (gọn, 1 surface). Đảo hướng giữa các vòng (tách → gom) là **có chủ đích**, không phải lỗi — bám yêu cầu hiện tại.
-- **Khi TÁCH card cấu hình → gộp control theo NGHĨA, KHÔNG per-control.** Mỗi card = 1 nhóm có nghĩa (vd *what-to-practice* = mode+level · *how-graded* = model). 1 control lẻ (1 dropdown / 1 segmented) thành 1 card = mỏng/thừa (vi phạm "card xứng đáng"). Control lẻ buộc đứng riêng → thêm 1 dòng helper cho thân. Ref [[control-group-label-uses-label-block]].
+- **Khi TÁCH card cấu hình → gộp control theo NGHĨA, KHÔNG per-control.** Mỗi card = 1 nhóm có nghĩa (vd *what-to-practice* = mode+level · *how-graded* = model). 1 control lẻ (1 dropdown / 1 segmented) thành 1 card = mỏng/thừa (vi phạm "card xứng đáng"). Control lẻ buộc đứng riêng → thêm 1 dòng helper cho thân.
 - **Khi GOM về 1 card:** section trong card = `<Label>` + whitespace; tối đa **1 divider** `border-t` để tách 2 CỤM NGHĨA LỚN (vd "kết quả/độ sẵn sàng" ↔ "cấu hình"), quanh divider để **gap-3** ([[gap]] §divider). Bên trong mỗi cụm giữ nhịp riêng (vd nhóm control = gap-6). Thứ tự gợi ý: **kết-quả/progress (status "đang ở đâu") TRÊN ĐẦU** → divider → cấu hình → **CTA chính** → control PHỤ.
 - **Control PHỤ (default-on, ít đổi — vd model chấm = Auto) đặt DƯỚI CTA chính** (de-emphasize), dùng **component/dropdown CHUNG tự self-label** (sparkle + tên) → **bỏ helper "X = ..." thừa**. Đừng đặt control phụ trên CTA (cướp attention khỏi hành động chính).
 - **Meta-intro "màn này là gì + kỳ vọng"** (subtitle 1 dòng + chips "N câu · giọng nói · AI chấm") = **strip PHẲNG dưới page-header**, KHÔNG bọc card (caption giới thiệu, không phải nhóm control). Bỏ khi thầy thấy thừa.
 - **CTA đơn** (primary action) để **phẳng** (trong card gom: đặt trong flow card; khi tách: phẳng ngoài các card cấu hình) — 1 hành động đơn KHÔNG bọc card riêng.
 
 ## Liên quan (đừng nhầm)
-- **Card-in-card** (lồng) → [[card-in-card-border-not-double-fill]] / [[surface-in-surface-inner-has-border]] (con bỏ fill / border + inherit). Đây là luật KHÁC: luật này nói về 2 card **kề nhau** (siblings), không phải lồng.
-- **Frameless** khi content vốn là card(s) → [[frameless-section-empty-state-needs-card]] + `LabeledCard frameless`.
+- **Card-in-card** (lồng) là luật KHÁC: luật này nói về 2 card **kề nhau** (siblings), không phải lồng.
+- **Frameless** khi content vốn là card(s) → `LabeledCard frameless`.
 - **Summary phẳng trong modal** (không bọc card vì modal đã là surface) → [[when-drawer]].
 
 ## Áp đầu (2026-06-24)

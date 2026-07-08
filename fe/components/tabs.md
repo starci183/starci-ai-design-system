@@ -30,14 +30,14 @@
 - Áp đầu: `ContentTabBar` (lesson reader — Nội dung/Thử thách trái + ngôn ngữ TS/Java/C#/Go phải) bật `collapseRightOnMobile`.
 
 ## 4. DOCUMENT TABS — chọn 1-trong-N item BỀN (CV/sheet/view), gộp 1 toolbar `TabsCard` + slot `leftEnd`
-- **Chọn 1-trong-N khi item là DOCUMENT BỀN (có tên + hành động riêng sửa/xoá/đổi tên — CV, sheet, view) → DOCUMENT TABS (underline, `TabsCard`), KHÔNG chip strip.** Phân ranh với attempt-selector ([[attempt-history-selector-adaptive-and-grading-model-chip]] = chip strip): attempt = bản ghi TRANSIENT chỉ-xem → chip; document = ít, bền, có identity + action → tab. Hỏi: item có tên riêng + user quản lý (sửa/xoá) không? Có → document tab; chỉ lịch sử xem lại → chip.
+- **Chọn 1-trong-N khi item là DOCUMENT BỀN (có tên + hành động riêng sửa/xoá/đổi tên — CV, sheet, view) → DOCUMENT TABS (underline, `TabsCard`), KHÔNG chip strip.** Phân ranh với attempt-selector: attempt = bản ghi TRANSIENT chỉ-xem → chip; document = ít, bền, có identity + action → tab. Hỏi: item có tên riêng + user quản lý (sửa/xoá) không? Có → document tab; chỉ lịch sử xem lại → chip.
 - **2 trục cùng govern body → GỘP 1 toolbar `TabsCard`:** trái = trục NỘI DUNG (document nào — accent) · phải = trục TRÌNH BÀY (Kết quả/Xem trước — neutral, 1 tín hiệu accent/toolbar). KHÔNG 2 hàng tab chồng.
 - **Hành động per-document (⌄ Sửa/Xoá) + "+" thêm mới = slot `leftEnd` của `TabsCard`** (cụm inline NGAY SAU dải tab trái, bọc `flex min-w-0 items-center gap-1`) — là **SIBLING của tab list, TUYỆT ĐỐI KHÔNG lồng button vào `Tabs.Tab`** (react-aria tab không nest interactive). ⌄ menu áp cho document ĐANG ACTIVE (Google Sheets style — 1 menu thay N kebab); "+" = ghost icon-only; "+N" overflow = span muted (→ drawer).
 - **Tab label = 1 node trong `label`, KHÔNG dùng prop `icon`** khi icon là verdict/status: `TabsCard` ẩn label dưới `sm` khi có `icon` (§2) → N tab cùng icon verdict thành N icon giống hệt. Nhét verdict + tên (`truncate max-w-32`) + score nhỏ (`text-xs opacity-70`) hết vào `label`.
 - **Header row của collection:** label trái + outcome line phải; entry-point "+ Thêm" chỉ về hàng này khi **0 document** (strip dưới không render). ≥1 document → strip tabs render (kể cả 1 — kiểu Sheets: 1 tab + "+").
 
 ## 5. `Tabs.Tab` PHẢI chứa `<Tabs.Indicator/>` (active underline)
-- **Mỗi `<Tabs.Tab>` PHẢI có `<Tabs.Indicator/>`** làm con (sau label) để có gạch chân active. HeroUI Tabs không tự render underline; thiếu → tab active chỉ đổi màu chữ, không rõ tab nào đang chọn. (`TabsCard` block đã tự lo — chỉ áp khi dựng raw HeroUI `Tabs`, vd trong modal.) Ref [[modal-header-tabs-indicator]].
+- **Mỗi `<Tabs.Tab>` PHẢI có `<Tabs.Indicator/>`** làm con (sau label) để có gạch chân active. HeroUI Tabs không tự render underline; thiếu → tab active chỉ đổi màu chữ, không rõ tab nào đang chọn. (`TabsCard` block đã tự lo — chỉ áp khi dựng raw HeroUI `Tabs`, vd trong modal.)
 
 ## Liên quan
-- [[elements/card]] (filter feed = TabsCard) · [[leaf-page-one-nav-and-combined-tab-toolbar]] (2 nhóm tab gộp 1 toolbar) · [[cv-document-tabs-combined-toolbar-leftend]] (document tabs + leftEnd) · [[master-detail-rail-as-filter-and-mobile-chips]] (mobile collapse cho rail) · [[modal-header-tabs-indicator]] (Tabs.Indicator) · [[when-drawer]].
+- [[elements/card]] (filter feed = TabsCard) · [[when-drawer]].

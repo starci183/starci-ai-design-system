@@ -1,6 +1,6 @@
 # Concept — Modal (HeroUI v3): KHÔNG override `p-*` trên `Modal.Body`; dialog `p-4` lo gutter, body `p-[3px]/-m-[3px]` lo focus-ring
 
-> Heuristic engineering (họ `concepts/*`, FE — chưa có `elements/modal.md`). Thầy chốt 2026-06-24 (soi DevTools `AuthenticationModal` thấy `p-3` drift). Bổ trợ [[surface-in-surface-inner-has-border]] · [[modal-header-tabs-indicator]] (Tabs.Indicator) · [[elements/header]] §5 (modal header).
+> Heuristic engineering (họ `concepts/*`, FE — chưa có `elements/modal.md`). Thầy chốt 2026-06-24 (soi DevTools `AuthenticationModal` thấy `p-3` drift). Bổ trợ [[elements/header]] §5 (modal header).
 
 ## HeroUI v3 fact (đọc `@heroui/styles/.../modal.css`)
 - `.modal__dialog` = `@apply p-6` mặc định → **gutter thật** (header/body/footer sống trong đây). StarCi override về **`p-4`** (globals.css `.modal__dialog { padding: 1rem !important; }` — pattern override trần `!important` như `.switch__control`). Thầy chốt 2026-06-24: p-6 rộng → **gutter chuẩn = p-4**.
@@ -14,4 +14,4 @@
 - **Nguyên tắc rút ra:** component-lib đã bake mô hình padding (gutter ở dialog, breathing ở body) → ĐỪNG đè utility lẻ lên slot con — đọc style bake (`get_styles`/css) trước, để nó tự lo; chỉ opt-out khi có chủ đích đặt tên.
 
 ## Liên quan
-- [[elements/header]] §5 (modal header = `Typography body semibold` + `pr-8`, không H3) · [[modal-header-tabs-indicator]] (Tabs cần `Tabs.Indicator`) · [[surface-in-surface-inner-has-border]] (khối bounded trong modal = border) · [[when-drawer]] (summary phẳng trong modal — [[when-drawer]]).
+- [[elements/header]] §5 (modal header = `Typography body semibold` + `pr-8`, không H3) · [[when-drawer]] (summary phẳng trong modal — [[when-drawer]]).

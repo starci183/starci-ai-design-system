@@ -14,7 +14,7 @@
 - **Overview mặc định = ~8 POD chức năng xếp QUANH 1 lõi (Core API) ở giữa**, KHÔNG dàn N node trên 1 mặt phẳng (đè nhau khi >~10 node). Pod = 1 nhóm năng lực (payment, auth, AI, data…), có dot sức khoẻ GỘP (§3). Xếp pod quanh Core → tự đọc ra "1 hệ thống", chống fragmentation (mỗi pod thành 1 hòn đảo rời). Giữ map phẳng đầy-đủ làm "god-view" (nút "Xem toàn bộ") cho power-user — nhưng pod-view là DEFAULT.
 - **Click pod → chuyển sang 1 SUB-SCENE RIÊNG** (không phải highlight trên map cũ): vẽ lõi nối gần nhất (thường Core API) + các thành viên pod + edge THẬT (kể cả 2 chiều, vd webhook chạy ngược). **DỪNG ở 2 tầng** (overview pod → pod detail) — KHÔNG tầng 3 (rối); "bóc tách sâu" = sub-scene GIÀU CHI TIẾT thật, không phải thêm cấp nav. Sub-scene LUÔN vẽ kèm lõi Core (không vẽ node lơ lửng).
 - **Chuyển cảnh = semantic zoom** (nếu 3D: lerp camera), gate `prefers-reduced-motion` → cắt cứng khi reduce. **State qua URL** (`?pod=<key>`) → deep-link/share. Breadcrumb "‹ Về toàn hệ thống".
-- **Sidebar/rail đồng bộ theo POD** (accordion: pod → thành viên); mobile → chip-row cuộn ngang ([[master-detail-rail-as-filter-and-mobile-chips]]).
+- **Sidebar/rail đồng bộ theo POD** (accordion: pod → thành viên); mobile → chip-row cuộn ngang.
 
 ## Luật 3 (STRICT) — Dot sức khoẻ của POD = ROLL-UP theo NGƯỠNG, không thuần worst-of
 - Pod dot gộp từ status THẬT của thành viên (tính trên member đã resolved):

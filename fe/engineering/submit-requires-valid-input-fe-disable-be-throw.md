@@ -9,4 +9,4 @@
 - **Nguyên tắc:** input bắt buộc mà rỗng = "chưa hợp lệ" → mọi hành động phụ thuộc (submit/grade/persist) chặn ở CẢ FE (affordance) LẪN BE (nguồn sự thật).
 
 ## Liên quan
-- [[disable-vs-lock-and-perrow-autosave]] (auto-save per-row + disable vs lock icon) · [[heroui-textfield-helper-error-needs-slot]] (FieldError).
+- [[disable-vs-lock-and-perrow-autosave]] (auto-save per-row + disable vs lock icon).

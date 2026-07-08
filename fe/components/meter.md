@@ -13,8 +13,7 @@
 - `max` guard `<= 0` → fallback `1` (tránh `NaN`/`Infinity`); `%` luôn `Math.round`.
 - `aria-label` = `label` khi là string, else fallback `"Progress"` — luôn truyền `label` string để a11y tốt.
 - **1 THANH TẠI 1 THỜI ĐIỂM cho 1 cụm** — đừng lặp `ProgressMeter` cho MỌI item/group cùng lúc trong 1 list.
-  Ref [[one-progress-bar-at-a-time]] (dead-link tên gọi — nội dung thật sống ở [[list]] §5d: group mở = 1
-  thanh, group gập = chỉ "n/m" muted).
+  Ref [[list]] §5d (group mở = 1 thanh, group gập = chỉ "n/m" muted).
 
 ## `SegmentBar` (`blocks/stats/SegmentBar`) — 1 thanh chia N MÀU theo tỉ lệ (GitHub-style)
 - `{ segments: {key,label,value,color?}[], ariaLabel, max?, hideLegend? }`. Track `bg-default` (KHÔNG

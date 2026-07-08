@@ -13,4 +13,4 @@
 - **Câu hỏi quyết định:** overlay này mở TỪ 1 popover đang mở (FAB chat, dropdown…) hay từ TRANG/layout gốc? Từ popover → in-panel. Từ trang gốc → Modal/Drawer bình thường (không có tổ tiên popover để đè).
 
 ## Liên quan
-- [[when-drawer]] (khi nào dùng Drawer — bình thường, không nested-popover).
+- [[chat-session-list-lazy-create-and-search]] (context áp dụng: panel chat AI) · [[when-drawer]] (khi nào dùng Drawer — bình thường, không nested-popover).
